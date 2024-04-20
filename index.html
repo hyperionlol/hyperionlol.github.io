@@ -14,8 +14,7 @@
         body {
             background-color: #000;
             color: #f8f9fa;
-            overflow: hidden;
-            position: inherit;
+            overflow-y: scroll;
         }
 
         /* Semi-transparent navbar */
@@ -95,6 +94,25 @@
         /* Center align text in Flame+ section */
         #flame-plus .card-body {
             text-align: center;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #222222;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #000000;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #000000;
         }
     </style>
     <!-- Google Fonts - Montserrat -->
@@ -193,7 +211,6 @@
         <p>Come Experience the Loyal Community Base and Hype!</p>
         <a href="https://discord.gg/ByqVNVbA" class="btn btn-primary btn-lg" style="background-color: rgba(169, 169, 169, 0.089); backdrop-filter: blur(5px); border: none;">Join Discord</a>
     </section>
-    
 
     <!-- Bootstrap 5 JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
