@@ -114,6 +114,14 @@
         ::-webkit-scrollbar-thumb:hover {
             background: #000000;
         }
+
+        /* Status section styles */
+        #status {
+            text-align: center;
+            font-size: 24px;
+            margin-top: 20px;
+            color: #76ff03; /* Bright green for visibility */
+        }
     </style>
     <!-- Google Fonts - Montserrat -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap">
@@ -135,16 +143,55 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="https://discord.gg/ByqVNVbA">Discord</a>
-                    </li>
-                    <li class="nav-item">
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
+
+    <!-- Status Section -->
+<div id="status">
+    <p><span style="color: white;">Status:</span> <strong id="statusText">Unpatched</strong></p>
+</div>
+
+<!-- Status Update Script -->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var statusText = document.getElementById('statusText');
+        
+        // Variable to set the initial status
+        var statusCode = 'id'; // Change 'up', 'p', or 'id' in the source code to update status
+        
+        // Function to update status based on the provided code
+        function updateStatus(statusCode) {
+            switch (statusCode) {
+                case 'up':
+                    statusText.textContent = 'Unpatched';
+                    statusText.style.color = 'light green';
+                    break;
+                case 'p':
+                    statusText.textContent = 'Patched';
+                    statusText.style.color = 'red';
+                    break;
+                case 'id':
+                    statusText.textContent = 'In Development';
+                    statusText.style.color = 'yellow';
+                    break;
+                default:
+                    statusText.textContent = 'Unknown Status';
+                    statusText.style.color = 'gray';
+            }
+        }
+
+        // Call the function with the initial status code
+        updateStatus(statusCode);
+    });
+</script>
+
+
+
+
 
     <!-- Animated Aurora Borealis -->
     <div class="aurora">
