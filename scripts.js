@@ -450,3 +450,44 @@ function animate() {
 function render() {
 	canvas.redraw();
 }
+
+function moveCursor(e) {
+  let x = e.clientX;
+  let y = e.clientY;
+  requestAnimationFrame(function() {
+      cursor.style.transform = `translate(${x - 10}px, ${y - 10}px)`;
+  });
+}
+
+// This code snippet should only appear once in your entire HTML file
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Check if the custom cursor already exists
+        var existingCursor = document.getElementById('customCursor');
+        if (!existingCursor) {
+            const cursor = document.createElement('div');
+            cursor.id = 'customCursor'; // Ensure a unique ID is used
+            cursor.classList.add('custom-cursor');
+            document.body.appendChild(cursor);
+
+            document.addEventListener('mousemove', function(e) {
+                // Subtract half of the cursor size to center it
+                const x = e.clientX - cursor.offsetWidth / 2;
+                const y = e.clientY - cursor.offsetHeight / 2;
+
+                cursor.style.left = x + 'px';
+                cursor.style.top = y + 'px';
+                cursor.style.opacity = 1;
+            });
+
+            // Optionally, hide the custom cursor when the mouse leaves the window
+            document.addEventListener('mouseleave', function() {
+                cursor.style.opacity = 0;
+            });
+
+            document.addEventListener('mouseenter', function() {
+                cursor.style.opacity = 1;
+            });
+        }
+    });
+</script>
